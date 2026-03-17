@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            padding:20px;
+        }.container{
+            border: 2px solid #000;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+        .box{
+            background-color: lightblue;
+            border: 1px solid blue;
+            padding: 5px;
+            margin: 10px;
+        }
+        .block{
+            display: block;
+            height: 50px;
+            width: 200px;
+        }
+        .inline{
+            display: inline;
+            height: 50px;
+            width: 200px;
+        }
+        .inline-block{
+            display: inline-block;
+            height: 50px;
+            width: 200px;
+        } 
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h2>Display -Block</h2>
+    <div class="box block">block</div>
+    <div class="box block">block</div>
+    <div class="box block">block</div>
+    </div>
+    <div class="container">
+    <h2>Display -Inline</h2>   
+    <div class="box inline">inline</div>
+    <div class="box inline">inline</div>
+    <div class="box inline">inline</div>
+    </div>
+    <div class="container">
+    <h2>Display -Inline-Block</h2>
+    <div class="box inline-block">inline-block</div>
+    <div class="box inline-block">inline-block</div>
+    <div class="box inline-block">inline-block</div>
+    </div>
+</body>
+</html>

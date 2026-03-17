@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+    <style>
+       * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  width: 350px;
+}
+
+.box {
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  padding: 30px;
+  text-align: center;
+}
+
+.logo {
+  font-family: cursive;
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  background: #0095f6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.or {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.or span {
+  flex: 1;
+  height: 1px;
+  background: #dbdbdb;
+}
+
+.or p {
+  margin: 0 10px;
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.fb {
+  display: block;
+  margin-bottom: 12px;
+  color: #385185;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot {
+  font-size: 12px;
+  color: #00376b;
+  text-decoration: none;
+}
+
+.signup {
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  margin-top: 10px;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup a {
+  color: #0095f6;
+  font-weight: bold;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="box">
+    <h1 class="logo">Instagram</h1>
+
+    <input type="text" placeholder="Phone number, username, or email">
+    <input type="password" placeholder="Password">
+
+    <button>Log in</button>
+
+    <div class="or">
+      <span></span>
+      <p>OR</p>
+      <span></span>
+    </div>
+
+    <a href="#" class="fb">Log in with Facebook</a>
+    <a href="#" class="forgot">Forgot password?</a>
+  </div>
+
+  <div class="signup">
+    <p>Don't have an account?
+      <a href="#">Sign up</a>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

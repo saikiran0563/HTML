@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Elements</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            /* horizontal center */
+            align-items: center;
+            /* vertical center */
+            flex-direction: column;
+            text-align: center;
+            background: linear-gradient(to bottom, rgb(196, 184, 184), rgb(224, 215, 215), black);
+            color: white;
+        }
+        .welcome-heading::before{
+            content: "👇👇👇";
+        }
+        
+            .welcome-heading::after{
+                content:"👇👇👇";
+            }
+            h1::first-letter{
+                color: brown;
+                font-size: xx-large;
+            }
+            h1::selection{
+                background-color: blueviolet;
+            }
+            .anchor:hover{
+                color: brown;
+            }
+            .anchor:link{
+                color: black;
+            }
+            .anchor:active{
+                color:violet
+            }
+            .anchor:link{
+                color: black;
+                text-decoration: none;
+            }
+            .welcome-heading:active{
+                color: red;
+            }
+    </style>
+</head>
+<body>
+    <center>
+     <h2 class="welcome-heading">WELCOME TO THE GREAT INDIAN FESTIVAL</h2>
+        <h1><strong>AMAZON</strong></h1>
+        <button>Join NOW</button>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt voluptate recusandae est distinctio qui, debitis animi dolorum iure nihil sapiente? Assumenda nesciunt ex odio amet distinctio est suscipit eveniet corrupti.</p>
+    <h4><a class="anchor" href="https://www.netflix.com/in/">Go To google</a></h4>
+    </center>
+</body>
+</html>

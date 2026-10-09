@@ -1,230 +1,355 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LuxeCars is a responsive luxury car catalogue demo built with HTML, CSS, and Bootstrap.">
+  <meta name="theme-color" content="#000000">
+  <title>LuxeCars | Premium Cars Collection</title>
 
-<title>LuxeCars</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
 
-<style>
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    padding-top: 70px;
-}
+    body {
+      padding-top: 70px;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
 
-html {
-    scroll-behavior: smooth;
-}
+    .text-gold {
+      color: #d4af37;
+    }
 
-.text-gold {
-    color: #d4af37;
-}
+    .custom-navbar {
+      background: rgba(0, 0, 0, 0.92);
+      border-bottom: 1px solid #222;
+      backdrop-filter: blur(10px);
+    }
 
-/* NAVBAR */
-.custom-navbar {
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #222;
-}
+    .nav-link {
+      margin-left: 0.5rem;
+      color: #fff !important;
+    }
 
-.nav-link {
-    color: #fff !important;
-    margin-left: 15px;
-}
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: #d4af37 !important;
+    }
 
-.nav-link:hover {
-    color: #d4af37 !important;
-}
+    section {
+      padding: 4rem 0;
+      scroll-margin-top: 70px;
+    }
 
-/* HERO */
-.home {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-    url('https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg');
-    background-size: cover;
-    background-position: center;
-}
+    .home {
+      display: flex;
+      min-height: calc(100vh - 70px);
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      text-align: center;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.76)),
+        url("https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
 
-/* CARDS */
-.card {
-    background-color: #111;
-    border: 1px solid #222;
-    color: #fff;
-    transition: 0.3s;
-}
+    .home h1 {
+      text-wrap: balance;
+    }
 
-.card img {
-    height: 220px;
-    object-fit: cover;
-}
+    .card {
+      height: 100%;
+      overflow: hidden;
+      background: #111;
+      border: 1px solid #292929;
+      color: #fff;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
 
-.card:hover {
-    transform: translateY(-8px);
-}
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
 
-/* BUTTON */
-.btn-gold {
-    background-color: #d4af37;
-    color: black;
-}
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #d4af37;
+    }
 
-.btn-gold:hover {
-    background-color: #b8962e;
-}
+    .btn-gold {
+      background: #d4af37;
+      border: 1px solid #d4af37;
+      color: #000;
+      font-weight: 600;
+    }
 
-/* FOOTER ICONS */
-footer i {
-    font-size: 20px;
-    color: #d4af37;
-    margin: 5px;
-    transition: 0.3s;
-}
+    .btn-gold:hover,
+    .btn-gold:focus-visible {
+      background: #b8962e;
+      border-color: #b8962e;
+      color: #000;
+    }
 
-footer i:hover {
-    color: white;
-    transform: scale(1.2);
-}
+    .detail-image {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
 
-/* SECTIONS */
-section {
-    padding: 60px 0;
-}
-</style>
+    .car-detail + .car-detail {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid #292929;
+    }
+
+    .demo-notice {
+      color: #d6d6d6;
+      font-size: 0.9rem;
+    }
+
+    .form-control:focus {
+      border-color: #d4af37;
+      box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.2);
+    }
+
+    footer {
+      border-top: 1px solid #292929;
+    }
+
+    footer .bi {
+      margin: 0 0.5rem;
+      color: #d4af37;
+      font-size: 1.25rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .card,
+      footer .bi {
+        transition: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-gold" href="#home">LUXECARS</a>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
-<div class="container">
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#main-menu"
+                aria-controls="main-menu" aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-<a class="navbar-brand fw-bold text-gold" href="#">LUXECARS</a>
+        <div class="collapse navbar-collapse" id="main-menu">
+          <ul class="navbar-nav ms-auto text-center">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#cars">Cars</a></li>
+            <li class="nav-item"><a class="nav-link" href="#details">Details</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-<span class="navbar-toggler-icon"></span>
-</button>
+  <main>
+    <section id="home" class="home">
+      <div class="container">
+        <p class="text-gold text-uppercase fw-semibold mb-2">Premium Cars Collection</p>
+        <h1 class="display-4 fw-bold">Drive Luxury</h1>
+        <p class="lead mb-4">Explore a showcase of premium automotive design.</p>
+        <a href="#cars" class="btn btn-gold btn-lg">Explore Cars</a>
+      </div>
+    </section>
 
-<div class="collapse navbar-collapse" id="menu">
-<ul class="navbar-nav ms-auto text-center">
+    <section id="cars" class="container">
+      <h2 class="text-center text-gold">Featured Cars</h2>
+      <p class="text-center demo-notice mt-2">Sample names and prices for a frontend demonstration only. No vehicles are offered for sale.</p>
 
-<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#cars">Cars</a></li>
-<li class="nav-item"><a class="nav-link" href="#rolls">Details</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      <div class="row g-4 mt-3">
+        <div class="col-sm-6 col-lg-3">
+          <article class="card">
+            <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg"
+                 alt="Luxury sedan displayed outdoors" loading="lazy">
+            <div class="card-body d-flex flex-column text-center">
+              <h3 class="h5 card-title">Rolls-Royce</h3>
+              <p class="text-gold">₹9.5 Cr <span class="visually-hidden">sample price</span></p>
+              <a href="#rolls" class="btn btn-gold w-100 mt-auto">View details</a>
+            </div>
+          </article>
+        </div>
 
-</ul>
-</div>
+        <div class="col-sm-6 col-lg-3">
+          <article class="card">
+            <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg"
+                 alt="Red sports car on a road" loading="lazy">
+            <div class="card-body d-flex flex-column text-center">
+              <h3 class="h5 card-title">Ferrari</h3>
+              <p class="text-gold">₹7.5 Cr <span class="visually-hidden">sample price</span></p>
+              <a href="#ferrari" class="btn btn-gold w-100 mt-auto">View details</a>
+            </div>
+          </article>
+        </div>
 
-</div>
-</nav>
+        <div class="col-sm-6 col-lg-3">
+          <article class="card">
+            <img src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg"
+                 alt="Sports car photographed at an angle" loading="lazy">
+            <div class="card-body d-flex flex-column text-center">
+              <h3 class="h5 card-title">Lamborghini</h3>
+              <p class="text-gold">₹6.5 Cr <span class="visually-hidden">sample price</span></p>
+              <a href="#lambo" class="btn btn-gold w-100 mt-auto">View details</a>
+            </div>
+          </article>
+        </div>
 
-<!-- HERO -->
-<section class="home d-flex align-items-center justify-content-center text-center">
-<div>
-<h1 class="display-4 fw-bold">Drive Luxury</h1>
-<p class="text-gold">Premium Cars Collection</p>
-<a href="#cars" class="btn btn-gold">Explore Cars</a>
-</div>
-</section>
+        <div class="col-sm-6 col-lg-3">
+          <article class="card">
+            <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg"
+                 alt="Blue luxury car viewed from the front" loading="lazy">
+            <div class="card-body d-flex flex-column text-center">
+              <h3 class="h5 card-title">Bentley</h3>
+              <p class="text-gold">₹5 Cr <span class="visually-hidden">sample price</span></p>
+              <a href="#bentley" class="btn btn-gold w-100 mt-auto">View details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<!-- CARS -->
-<section id="cars" class="container">
-<h2 class="text-center text-gold">Featured Cars</h2>
+    <section id="details" class="container border-top">
+      <h2 class="text-center text-gold mb-5">Car Details</h2>
 
-<div class="row g-4 mt-4">
+      <article id="rolls" class="row align-items-center gy-4 car-detail">
+        <div class="col-md-6">
+          <img class="detail-image" src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg"
+               alt="Luxury sedan displayed outdoors" loading="lazy">
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-gold">Rolls-Royce</h3>
+          <p>Luxury-inspired styling, a focus on passenger comfort, and a refined interior concept.</p>
+          <p class="h4">₹9.5 Cr <small class="fs-6 text-secondary">sample price</small></p>
+          <button class="btn btn-outline-secondary w-100" type="button" disabled>Demo only — checkout unavailable</button>
+        </div>
+      </article>
 
-<div class="col-lg-3 col-md-6">
-<div class="card">
-<img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg">
-<div class="card-body text-center">
-<h5>Rolls Royce</h5>
-<p class="text-gold">₹9.5 Cr</p>
-<a href="#rolls" class="btn btn-gold w-100">View</a>
-</div>
-</div>
-</div>
+      <article id="ferrari" class="row align-items-center gy-4 car-detail">
+        <div class="col-md-6">
+          <img class="detail-image" src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg"
+               alt="Red sports car on a road" loading="lazy">
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-gold">Ferrari</h3>
+          <p>A sports-car concept page highlighting performance-inspired styling and an expressive exterior.</p>
+          <p class="h4">₹7.5 Cr <small class="fs-6 text-secondary">sample price</small></p>
+          <button class="btn btn-outline-secondary w-100" type="button" disabled>Demo only — checkout unavailable</button>
+        </div>
+      </article>
 
-<div class="col-lg-3 col-md-6">
-<div class="card">
-<img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg">
-<div class="card-body text-center">
-<h5>Ferrari</h5>
-<p class="text-gold">₹7.5 Cr</p>
-<a href="#ferrari" class="btn btn-gold w-100">View</a>
-</div>
-</div>
-</div>
+      <article id="lambo" class="row align-items-center gy-4 car-detail">
+        <div class="col-md-6">
+          <img class="detail-image" src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg"
+               alt="Sports car photographed at an angle" loading="lazy">
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-gold">Lamborghini</h3>
+          <p>A bold, angular sports-car concept highlighting dramatic lines and an attention-grabbing silhouette.</p>
+          <p class="h4">₹6.5 Cr <small class="fs-6 text-secondary">sample price</small></p>
+          <button class="btn btn-outline-secondary w-100" type="button" disabled>Demo only — checkout unavailable</button>
+        </div>
+      </article>
 
-<div class="col-lg-3 col-md-6">
-<div class="card">
-<img src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg">
-<div class="card-body text-center">
-<h5>Lamborghini</h5>
-<p class="text-gold">₹6.5 Cr</p>
-<a href="#lambo" class="btn btn-gold w-100">View</a>
-</div>
-</div>
-</div>
+      <article id="bentley" class="row align-items-center gy-4 car-detail">
+        <div class="col-md-6">
+          <img class="detail-image" src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg"
+               alt="Blue luxury car viewed from the front" loading="lazy">
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-gold">Bentley</h3>
+          <p>A premium grand-touring concept with a balance of elegant design and road presence.</p>
+          <p class="h4">₹5 Cr <small class="fs-6 text-secondary">sample price</small></p>
+          <button class="btn btn-outline-secondary w-100" type="button" disabled>Demo only — checkout unavailable</button>
+        </div>
+      </article>
+    </section>
 
-<div class="col-lg-3 col-md-6">
-<div class="card">
-<img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg">
-<div class="card-body text-center">
-<h5>Bentley</h5>
-<p class="text-gold">₹5 Cr</p>
-<a href="#bentley" class="btn btn-gold w-100">View</a>
-</div>
-</div>
-</div>
+    <section id="contact" class="container border-top">
+      <h2 class="text-center text-gold">Contact Demo</h2>
+      <p class="text-center demo-notice">This is a frontend exercise. Submitting this form does not send or store your information.</p>
 
-</div>
-</section>
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-7 col-lg-6">
+          <form id="contact-form">
+            <div class="mb-3">
+              <label class="form-label" for="contact-name">Name</label>
+              <input id="contact-name" name="name" type="text" class="form-control"
+                     autocomplete="name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" class="form-control"
+                     autocomplete="email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" class="form-control" rows="4" required></textarea>
+            </div>
+            <button class="btn btn-gold w-100" type="submit">Test form</button>
+            <p id="form-feedback" class="mt-3 mb-0 demo-notice" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- DETAILS -->
-<section id="rolls" class="container border-top">
-<div class="row align-items-center">
-<div class="col-md-6">
-<img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg" class="img-fluid">
-</div>
-<div class="col-md-6">
-<h2 class="text-gold">Rolls Royce</h2>
-<p>Luxury sedan with premium comfort and handcrafted interior.</p>
-<h3>₹9.5 Cr</h3>
-<button class="btn btn-gold w-100">Buy Now</button>
-</div>
-</div>
-</section>
+  <footer class="text-center py-4">
+    <p class="text-gold mb-2">© 2026 LuxeCars — Frontend demo</p>
+    <div aria-label="Decorative social icons">
+      <i class="bi bi-facebook" aria-hidden="true"></i>
+      <i class="bi bi-instagram" aria-hidden="true"></i>
+      <i class="bi bi-twitter-x" aria-hidden="true"></i>
+    </div>
+    <p class="demo-notice mt-2 mb-0">This demo is not affiliated with or operated by any car manufacturer.</p>
+  </footer>
 
-<!-- CONTACT -->
-<section id="contact" class="container">
-<h2 class="text-center text-gold">Contact Us</h2>
-
-<div class="row justify-content-center mt-4">
-<div class="col-md-6">
-<input type="text" class="form-control mb-3" placeholder="Name">
-<input type="email" class="form-control mb-3" placeholder="Email">
-<textarea class="form-control mb-3" rows="3" placeholder="Message"></textarea>
-<button class="btn btn-gold w-100">Send</button>
-</div>
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer class="text-center border-top py-4">
-<p class="text-gold mb-2">© 2026 LuxeCars</p>
-
-<div>
-<i class="bi bi-facebook"></i>
-<i class="bi bi-instagram"></i>
-<i class="bi bi-twitter"></i>
-</div>
-</footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+          crossorigin="anonymous"></script>
+  <script>
+    // The form demonstrates browser-side validation only; it does not send data.
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.getElementById("form-feedback").textContent =
+        "Demo complete: no information was sent or stored.";
+      this.reset();
+    });
+  </script>
 </body>
 </html>

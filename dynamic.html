@@ -1,12 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic JavaScript</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive JavaScript exercise for DOM selection, event listeners, and state updates.">
+  <title>JavaScript DOM Practice</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1.25rem; background: #eef2ff; color: #1e1b4b; font-family: system-ui, sans-serif; }
+    main { width: min(520px, 100%); padding: clamp(1.5rem, 6vw, 3rem); border-radius: 1.25rem; background: #fff; box-shadow: 0 1.5rem 4rem rgb(30 27 75 / 12%); text-align: center; }
+    .counter { margin: 1.5rem 0; font-size: clamp(3.5rem, 15vw, 6rem); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+    .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; }
+    button { min-width: 100px; padding: .75rem 1rem; border: 0; border-radius: .6rem; background: #4338ca; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    button[data-counter-action="reset"] { background: #e0e7ff; color: #312e81; }
+    button:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+    #counterStatus { min-height: 3em; margin-top: 1.25rem; color: #4b5563; }
+    code { padding: .15rem .35rem; border-radius: .25rem; background: #eef2ff; }
+  </style>
 </head>
 <body>
-    <h1>Welcome to dynaic JavaScript</h1>
-    
+  <main>
+    <p class="text-uppercase">JavaScript practice</p>
+    <h1>Interactive counter</h1>
+    <p>Click a button to update the number without reloading the page.</p>
+    <output class="counter" id="counterValue" aria-live="polite">0</output>
+    <div class="buttons" aria-label="Counter controls">
+      <button type="button" data-counter-action="decrease" aria-label="Decrease counter">− Decrease</button>
+      <button type="button" data-counter-action="reset">Reset</button>
+      <button type="button" data-counter-action="increase" aria-label="Increase counter">+ Increase</button>
+    </div>
+    <p id="counterStatus" role="status" aria-live="polite">JavaScript is starting…</p>
+    <p><strong>Concepts:</strong> variables, functions, <code>querySelector()</code>, <code>addEventListener()</code>, and <code>textContent</code>.</p>
+  </main>
+  <script src="assets/js/dynamic-demo.js" defer></script>
 </body>
 </html>

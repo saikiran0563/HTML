@@ -1,57 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>creating navbar</title>
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing: border-box;
-        }
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            padding:20px;
-        }
-        nav{
-            background-color: black;
-            width: 100%;
-            height: 60px;
-            display:flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-        h3{
-            color: #fff;
-
-        }
-        ul{
-            text-align: end;
-        }
-        li{
-            display: inline-block;
-            padding: 20px 15px;
-            text-align: end;
-
-        }
-        a{
-            color: #fff;
-            text-decoration: none;
-            margin-right: 15px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A responsive navigation practice page using HTML, CSS, and JavaScript.">
+  <title>Responsive Navigation Practice</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+    body { margin: 0; color: #18212b; font-family: system-ui, sans-serif; line-height: 1.6; }
+    .site-header { position: sticky; top: 0; z-index: 10; background: #111827; color: #fff; box-shadow: 0 2px 12px rgb(0 0 0 / 15%); }
+    .nav-bar { width: min(1120px, 100%); min-height: 70px; margin: 0 auto; padding: .8rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { color: #fff; font-size: 1.15rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; gap: .3rem; margin: 0; padding: 0; list-style: none; }
+    .nav-links a { display: block; padding: .65rem .85rem; border-radius: .5rem; color: #e5e7eb; text-decoration: none; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: #fff; background: #374151; }
+    .nav-toggle { display: none; padding: .5rem .8rem; border: 1px solid #6b7280; border-radius: .5rem; background: transparent; color: #fff; font: inherit; cursor: pointer; }
+    main { width: min(1000px, 100%); margin: 0 auto; padding: 1.25rem; }
+    section { min-height: 250px; padding: clamp(2rem, 6vw, 4rem) 0; border-bottom: 1px solid #e5e7eb; scroll-margin-top: 70px; }
+    .hero { padding: clamp(3rem, 10vw, 7rem) clamp(1.25rem, 5vw, 4rem); border-radius: 1rem; background: linear-gradient(130deg, #1d4ed8, #6d28d9); color: white; }
+    .hero h1 { max-width: 14ch; font-size: clamp(2.3rem, 7vw, 4.5rem); line-height: 1.05; }
+    .tile-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .tile { padding: 1.25rem; border: 1px solid #e5e7eb; border-radius: .75rem; background: #f9fafb; }
+    footer { padding: 1.5rem; background: #111827; color: #e5e7eb; text-align: center; }
+    :focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+    @media (max-width: 640px) {
+      .nav-bar { flex-wrap: wrap; }
+      .nav-toggle { display: inline-block; }
+      .nav-links { display: none; flex-basis: 100%; align-items: stretch; flex-direction: column; }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: .8rem; }
+      .tile-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <h3>My Navbar</h3>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a class="brand" href="#home">Frontend Lab</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-expanded="false">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Topics</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+  </header>
+  <main>
+    <section id="home" class="hero">
+      <p>HTML + CSS + JavaScript</p>
+      <h1>A navigation menu that works on every screen.</h1>
+      <p>Use the menu to jump between sections. On narrow screens, the button opens and closes the navigation links.</p>
+      <a class="btn" href="#services" style="display:inline-block;margin-top:.5rem;padding:.7rem 1rem;border-radius:.5rem;background:#fff;color:#1d4ed8;font-weight:700;text-decoration:none;">Explore the topics</a>
+    </section>
+    <section id="about">
+      <h2>About this exercise</h2>
+      <p>This page demonstrates semantic navigation, responsive CSS, matching anchor targets, focus styles, and a small JavaScript interaction.</p>
+    </section>
+    <section id="services">
+      <h2>Topics demonstrated</h2>
+      <div class="tile-grid">
+        <article class="tile"><h3>HTML</h3><p>Navigation landmarks, lists, buttons, links, and section IDs.</p></article>
+        <article class="tile"><h3>CSS</h3><p>Flexbox, grid, responsive breakpoints, focus styles, and reduced motion.</p></article>
+        <article class="tile"><h3>JavaScript</h3><p>Event listeners, class toggling, and updating an ARIA state.</p></article>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact section</h2>
+      <p>This is an anchor target for the menu-link exercise. It is not a working contact service.</p>
+    </section>
+  </main>
+  <footer>Responsive navigation practice — no backend.</footer>
+  <script src="assets/js/navbar-demo.js" defer></script>
 </body>
 </html>

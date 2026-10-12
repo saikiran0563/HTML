@@ -1,63 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adding css in html</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        p{
-            color:red;
-        }
-        h1{
-            color:cyan;
-        }
-        .same-styling{
-            color: yellow;
-        }
-        #btn{
-            color: blue;
-        }
-        .btn{
-            color:green;
-        }
-        *{
-            color:rgb(50, 0, 97)
-        }
-        body{
-            background-image: url('/image/download\ \(1\).jpg');
-        }
-        .division{
-            background: #000;
-        }
-        #home{
-            background-color:rgb(11, 112, 201);
-            height: 300px;
-            width: 300px;
-        }
-        #about{
-            background-color: firebrick;
-            height: 200px;
-            width: 200px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A small lesson showing external, internal, and inline CSS.">
+  <title>CSS Sources Practice</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .internal-demo {
+      color: #7e22ce;
+      font-weight: 700;
+    }
+    .internal-badge {
+      display: inline-block;
+      padding: .2rem .5rem;
+      border-radius: 999px;
+      background: #f3e8ff;
+      color: #6b21a8;
+      font-size: .8rem;
+    }
+  </style>
 </head>
-<body><center>
-    <section id="home">
-    <h1 style="color:crimson;">unlimited<span style="color:rgb(0, 0, 0)" >movies and shows</h1></span>
-    <div class="division" >
-    <p class="same-styling">Enjoy your favorite shows and movies anytime, anywhere.</p>
-    <p><strong>Stream on any device, anytime.</strong>Enter your email to get started.</p>
-    </div>
-    <h6 class="same-styling">join now netflix</h6>
-    <button id="btn" class="btn">Get Started</button></center>
+<body class="demo-body">
+  <main class="demo-container">
+    <section class="demo-panel">
+      <p class="internal-badge">CSS practice</p>
+      <h1>Three ways to apply CSS</h1>
+      <p>CSS can be written in an external stylesheet, inside a page with a style element, or on an individual element with the style attribute.</p>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <h2>External CSS</h2>
+          <p class="external-demo">This text uses the class from style.css.</p>
+          <p>External styles are reusable across multiple HTML pages.</p>
+        </article>
+        <article class="demo-card">
+          <h2>Internal CSS</h2>
+          <p class="internal-demo">This text uses the internal-demo rule in the head.</p>
+          <p>Internal styles apply to this HTML document.</p>
+        </article>
+        <article class="demo-card">
+          <h2>Inline CSS</h2>
+          <p style="color:#b91c1c;font-weight:700;">This text uses a style attribute.</p>
+          <p>Inline styles affect one element and are harder to maintain at scale.</p>
+        </article>
+      </div>
+      <button class="demo-button" id="messageButton" type="button">Try a small interaction</button>
+      <p id="message" role="status" aria-live="polite"></p>
     </section>
-
-    <section id="about">
-    <h4>more reasons to join</h4>
-    <p>download the movies</p>
-    <p>subcribe to download</p>
-    <button>join now</button>
-    </section>
+  </main>
+  <script>
+    const messageButton = document.querySelector("#messageButton");
+    const message = document.querySelector("#message");
+    messageButton.addEventListener("click", () => {
+      message.textContent = "You used an event listener to update the page.";
+    });
+  </script>
 </body>
 </html>

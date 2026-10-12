@@ -1,71 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign up,box model</title>
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing: border-box;
-        }
-        body{
-            height:100vh;
-            background-color: rgb(204, 240, 240);
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-            margin-top: 10%;
-        }
-        .form-container{
-            border: 2px solid #ddd;
-            height:40%;
-            width: 40%;
-            border-radius: 5px;
-            padding: 10px;
-            margin:10px;
-            margin-left: 30%;
-            background-color:transparent;
-        }
-        h2{
-            font-size: 30px;
-            font-weight: bold;
-            padding-bottom: 20px;
-        }
-        input{
-            padding: 10px;
-            width:75%;
-            border:1px solid white;
-            border-radius: 5px;
-            background-color: transparent;
-        }
-        label{
-            padding-bottom: 10px;
-            font-size: 20px;
-            color:black
-        }
-        button{
-            padding:5px;
-            width:50%;
-            background-color: rgb(14, 14, 4);
-            border: none;
-            border-radius: 5px;
-            color:#fff
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A responsive sign-up form layout used for HTML and CSS practice.">
+  <title>Sign-up Form Layout Practice</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; padding: 2rem 1rem; display: grid; place-items: center; background: linear-gradient(135deg, #e0f2fe, #f5f3ff); color: #172033; font-family: system-ui, sans-serif; }
+    .form-container { width: min(100%, 460px); padding: clamp(1.25rem, 5vw, 2rem); border: 1px solid #dbe4ef; border-radius: 1rem; background: #fff; box-shadow: 0 1.5rem 3.5rem rgb(23 32 51 / 12%); }
+    h1 { margin-top: 0; font-size: clamp(1.7rem, 5vw, 2.2rem); }
+    .intro { color: #596579; line-height: 1.6; }
+    .field { display: grid; gap: .4rem; margin: 1rem 0; }
+    label { font-weight: 650; }
+    input { width: 100%; padding: .8rem .9rem; border: 1px solid #b8c3d1; border-radius: .55rem; font: inherit; }
+    input:focus-visible, button:focus-visible { outline: 3px solid #7c3aed; outline-offset: 2px; }
+    button { width: 100%; margin-top: .5rem; padding: .85rem; border: 0; border-radius: .55rem; background: #4338ca; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+    .notice { padding: .8rem; border-radius: .5rem; background: #fef3c7; color: #78350f; font-size: .9rem; }
+    #signupStatus { min-height: 1.5em; color: #166534; }
+  </style>
 </head>
 <body>
-    <form class="form-container">
-        <h2>sign up form</h2>
-        <lable>Fullname:</lable>
-        <input type="text" placeholder="enter your name"/><br><br>
-        <lable> email:</lable>
-        <input type="email" placeholder="enter your email"/><br><br>
-        <lable>password:</lable>
-        <input type="password" placeholder="enter your password"/><br><br>
-        <button type="submit">submit</button>
-
-
+  <main>
+    <form class="form-container" id="signupForm">
+      <h1>Create a sample account</h1>
+      <p class="intro">This static page demonstrates labels, inputs, spacing, and responsive CSS.</p>
+      <p class="notice">Demo only. Use fictional details and a fake password. Nothing is sent or saved.</p>
+      <div class="field">
+        <label for="signupName">Display name</label>
+        <input id="signupName" name="name" type="text" autocomplete="off" placeholder="Example name" required>
+      </div>
+      <div class="field">
+        <label for="signupEmail">Sample email</label>
+        <input id="signupEmail" name="email" type="email" autocomplete="off" placeholder="name@example.test" required>
+      </div>
+      <div class="field">
+        <label for="signupPassword">Fake password for layout practice</label>
+        <input id="signupPassword" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required>
+      </div>
+      <button type="submit">Validate sample form</button>
+      <p id="signupStatus" role="status" aria-live="polite"></p>
     </form>
+  </main>
+  <script>
+    const signupForm = document.querySelector("#signupForm");
+    const signupStatus = document.querySelector("#signupStatus");
+    signupForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      signupStatus.textContent = "Sample form is valid. No account was created and no details were sent.";
+    });
+  </script>
 </body>
 </html>

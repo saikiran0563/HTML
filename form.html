@@ -1,50 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forms</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An HTML form practice page demonstrating labels, input types, select menus, and client-side validation.">
+  <title>HTML Form Controls Practice</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 2rem 1rem; background: #f3f6fa; color: #1f2937; font-family: system-ui, sans-serif; }
+    main { max-width: 760px; margin: 0 auto; }
+    .form-card { padding: clamp(1rem, 4vw, 2rem); border: 1px solid #dce3eb; border-radius: 1rem; background: #fff; box-shadow: 0 1rem 2rem rgb(31 41 55 / 7%); }
+    .field { display: grid; gap: .4rem; margin-bottom: 1rem; }
+    label, legend { font-weight: 650; }
+    input, select, textarea { width: 100%; padding: .75rem; border: 1px solid #aab5c2; border-radius: .5rem; font: inherit; }
+    input[type="checkbox"], input[type="radio"], input[type="range"], input[type="color"] { width: auto; }
+    fieldset { margin: 0 0 1rem; padding: 1rem; border: 1px solid #dce3eb; border-radius: .6rem; }
+    .choice-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: .6rem; }
+    .choice { display: inline-flex; align-items: center; gap: .4rem; }
+    button { padding: .7rem 1rem; border: 0; border-radius: .5rem; background: #1d4ed8; color: #fff; font: inherit; cursor: pointer; }
+    button[type="reset"] { background: #e5e7eb; color: #111827; }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .notice { padding: .8rem; border-radius: .5rem; background: #eff6ff; color: #1e3a8a; }
+    :focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+  </style>
 </head>
 <body>
-    <h1>Registration Form</h1>
-    <center>
-    <form>
-        <lable>name</lable>
-        <input type="text" placeholder="Enter your username"><br><br>
-        <lable>Email</lable>
-        <input type="email" placeholder="Enter your email"><br><br>
-        <lable>Gender</lable>
-        <input type="radio" name="gender" value="male">Male
-        <input type="radio" name="gender" value="female">Female<br><br>
-        <lable>Password</lable>
-        <input type="password" placeholder="Enter your password"><br><br>
-        <lable>technologies</lable>
-        <input type="checkbox" name="tech" value="html">HTML
-        <input type="checkbox" name="tech" value="css">CSS<br><br>
-        <lable>Phone number</lable>
-        <input type="tel" placeholder="Enter your phone number"><br><br>
-        <label>Experience</label>
-        <input type="number" placeholder="Enter your experience in years"><br><br>
-        <label>Date of Birth</label>
-        <input type="date"><br><br>
-        <label>time</label>
-        <input type="time"><br><br>
-        <label>range</label>
-        <input type="range"><br><br>
-        <label>color</label>
-        <input type="color"><br><br>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">><br>
-        <label>select your country</label>
-        <select>
-            <option value="india">India</option>
-            <option value="usa">USA</option>
-            <option value="uk">UK</option>
-            <option value="australia">Australia</option>
-        </select><br><br>
-        <label>Drop your comments:</label>
-        <textarea rows="6" cols="10" placeholder="enter your comments"></textarea>
+  <main>
+    <h1>HTML Form Controls</h1>
+    <p>Practise labels, fieldsets, common input types, selects, and text areas.</p>
+    <form class="form-card" id="registrationForm">
+      <p class="notice">Practice only: use fictional details. This page does not send or store your entries.</p>
+      <div class="field">
+        <label for="fullName">Display name</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Example: Alex" autocomplete="off" required>
+      </div>
+      <div class="field">
+        <label for="email">Sample email address</label>
+        <input id="email" name="email" type="email" placeholder="alex@example.test" autocomplete="off" required>
+      </div>
+      <fieldset>
+        <legend>Preferred contact method</legend>
+        <div class="choice-list">
+          <label class="choice"><input type="radio" name="contactMethod" value="email" checked> Email</label>
+          <label class="choice"><input type="radio" name="contactMethod" value="phone"> Phone</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Technologies you are learning</legend>
+        <div class="choice-list">
+          <label class="choice"><input type="checkbox" name="technology" value="html"> HTML</label>
+          <label class="choice"><input type="checkbox" name="technology" value="css"> CSS</label>
+          <label class="choice"><input type="checkbox" name="technology" value="javascript"> JavaScript</label>
+          <label class="choice"><input type="checkbox" name="technology" value="bootstrap"> Bootstrap</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="experience">Practice experience (years)</label>
+        <input id="experience" name="experience" type="number" min="0" max="50" step="1" value="0">
+      </div>
+      <div class="field">
+        <label for="country">Sample country</label>
+        <select id="country" name="country">
+          <option value="india">India</option>
+          <option value="usa">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="confidence">Confidence with forms (1–10)</label>
+        <input id="confidence" name="confidence" type="range" min="1" max="10" value="5">
+      </div>
+      <div class="field">
+        <label for="comments">Learning notes</label>
+        <textarea id="comments" name="comments" rows="4" placeholder="What would you like to practise next?"></textarea>
+      </div>
+      <div class="actions">
+        <button type="submit">Validate demo form</button>
+        <button type="reset">Reset</button>
+      </div>
+      <p id="formStatus" role="status" aria-live="polite"></p>
     </form>
-    </center>
+  </main>
+  <script>
+    const registrationForm = document.querySelector("#registrationForm");
+    const formStatus = document.querySelector("#formStatus");
+    registrationForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      formStatus.textContent = "Form validation passed. Your sample entries were not sent or stored.";
+    });
+    registrationForm.addEventListener("reset", () => {
+      formStatus.textContent = "";
+    });
+  </script>
 </body>
 </html>

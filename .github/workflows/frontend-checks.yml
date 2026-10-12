@@ -1,0 +1,38 @@
+name: Frontend checks
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frontend-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check variables.js
+          node --check assets/js/store.js
+          node --check assets/js/dynamic-demo.js
+          node --check assets/js/navbar-demo.js
+
+      - name: Check portfolio page IDs and local references
+        run: python scripts/check_frontend.py

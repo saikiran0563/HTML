@@ -1,76 +1,71 @@
-# HTML, CSS & Bootstrap Practice
+# Frontend Learning Lab — HTML, CSS, JavaScript & Bootstrap
 
-A collection of frontend learning exercises and small page recreations covering HTML, CSS, responsive design, Bootstrap, and basic JavaScript.
+This repository contains frontend course exercises, focused examples, and small page recreations. It is organised as a learning portfolio: the examples show concepts, while the complete demos combine responsive layout, accessibility, and browser-side interaction.
 
-## Live Demo
+[![Frontend checks](https://github.com/saikiran0563/HTML/actions/workflows/frontend-checks.yml/badge.svg?branch=master)](https://github.com/saikiran0563/HTML/actions/workflows/frontend-checks.yml)
 
-**LuxeCars showcase:** https://html-pied-seven.vercel.app/
+## Featured work
 
-The deployed homepage is a responsive, single-page luxury-car catalogue mockup built with HTML, CSS, and Bootstrap. It is a frontend demonstration only: prices are samples, checkout is disabled, and the contact form does not send or store data.
+### 1. LuxeCars — responsive showcase
 
-## Featured Page
+**Live demo:** https://html-pied-seven.vercel.app/
 
-- **[LuxeCars homepage](index.html)** — responsive navigation, hero section, featured car cards, linked detail sections, and a demo contact form.
+Open [index.html](index.html) for a responsive car-catalogue concept with navigation, hero layout, cards, detail sections, image descriptions, and a demo contact form. Prices are samples and the form does not send or store data.
 
-## Practice Pages
+### 2. Thread & Co. — interactive demo storefront
 
-| File | Topics |
+Open [Ecommers.html](Ecommers.html) to practise a more interactive page built with HTML, CSS, Bootstrap, and JavaScript.
+
+- Search products by name and filter by category.
+- Add products to a browser-only demo cart.
+- Remove items, clear the cart, and calculate a sample total.
+- Use responsive product cards and an accessible cart panel.
+
+This is **not a real shop**. It has no checkout, payment processing, login, backend, or data persistence. The cart resets when the page is refreshed. Do not enter personal or payment information.
+
+## Learning path
+
+| Skill | Examples |
 |---|---|
-| [BOOTSTRAP.html](BOOTSTRAP.html) | Bootstrap navbar, typography, and form controls |
-| [bootstrapgrid.html](bootstrapgrid.html) | Bootstrap grid and responsive columns |
-| [Ecommers.html](Ecommers.html) | Shopping-page layout and form markup practice |
-| [animation.html](animation.html) | CSS animation |
-| [boxModel.html](boxModel.html) | CSS box model |
-| [display.html](display.html) | CSS display properties |
-| [flexbox.html](flexbox.html) | Flexbox layout |
-| [grid.html](grid.html) | CSS grid |
-| [form.html](form.html) | HTML form controls |
-| [signup.html](signup.html) | Form layout and styling |
-| [navbar.html](navbar.html) | Navigation layout |
-| [media.html](media.html) | Audio/video embedding |
-| [mediaQueries.html](mediaQueries.html) | Responsive CSS media queries |
-| [position.html](position.html) | CSS positioning |
-| [overflow.html](overflow.html) | Overflow behavior |
-| [psudoElements.html](psudoElements.html) | CSS pseudo-elements |
-| [instagramClone.html](instagramClone.html) | Static login-screen layout practice |
-| [netflix.html](netflix.html) | Static streaming-page layout practice |
-| [website.html](website.html) | Alternate LuxeCars layout |
-| [loader.html](loader.html) | Loading animation |
-| [list.html](list.html) | HTML lists |
-| [dynamic.html](dynamic.html) and [variables.js](variables.js) | Basic JavaScript |
-| [sample.html](sample.html) | Applying CSS to HTML |
+| HTML structure and forms | [form.html](form.html), [signup.html](signup.html), [list.html](list.html) |
+| CSS selectors and box model | [sample.html](sample.html), [boxModel.html](boxModel.html), [display.html](display.html) |
+| Layout and positioning | [flexbox.html](flexbox.html), [grid.html](grid.html), [position.html](position.html), [overflow.html](overflow.html) |
+| Responsive design | [mediaQueries.html](mediaQueries.html), [navbar.html](navbar.html) |
+| Animation and visual effects | [animation.html](animation.html), [loader.html](loader.html), [psudoElements.html](psudoElements.html) |
+| Bootstrap layout and components | [BOOTSTRAP.html](BOOTSTRAP.html), [bootstrapgrid.html](bootstrapgrid.html) |
+| JavaScript basics and DOM events | [variables.js](variables.js), [dynamic.html](dynamic.html), [assets/js/dynamic-demo.js](assets/js/dynamic-demo.js) |
+| Browser-side state and event handling | [assets/js/store.js](assets/js/store.js) |
+| Media embedding | [media.html](media.html) |
+| Static page recreations | [instagramClone.html](instagramClone.html), [netflix.html](netflix.html), [website.html](website.html) |
 
-Some filenames reflect their original classroom names and are retained to avoid breaking existing links or practice history.
+Some filenames keep their original classroom spelling to preserve links and learning history.
 
-## Run Locally
+## Repository structure
 
-1. Clone this repository.
-2. Open `index.html` in a browser, or use the Live Server extension in VS Code.
-3. Internet access is required for Bootstrap assets and externally hosted car images.
+- \`assets/css/store.css\` — styling for the interactive storefront.
+- \`assets/js/store.js\` — product search, category filtering, demo-cart state, and sample totals.
+- \`assets/js/dynamic-demo.js\` — DOM counter exercise.
+- \`assets/js/navbar-demo.js\` — responsive navigation interaction.
+- \`image/\`, \`audio/\`, and \`video/\` — media used by existing practice pages.
 
-Most other pages are standalone exercises and can be opened directly in a browser.
+## Run locally
 
-## Important Safety and Scope Notes
+1. Clone the repository and open the folder in VS Code.
+2. Start a local static server from the repository root. For example, with Python installed, run \`python -m http.server 8000\`.
+3. Visit \`http://localhost:8000\` and open \`index.html\`, \`Ecommers.html\`, or the practice page you want to review.
+4. Internet access is needed for Bootstrap CDN assets and remote demonstration images.
 
-- These pages are practice demos, not production applications.
-- No shopping cart, payment processor, authentication service, or backend is implemented in these mockups.
-- **Never enter real passwords, card numbers, or other sensitive information** into the static login/payment practice pages.
-- Forms on these pages do not represent a real service unless explicitly documented otherwise.
-- Before sharing or deploying media files, confirm that you have permission to publish them and that they contain no private information.
+## Quality and safety notes
 
-## Topics Covered
-
-- Semantic HTML and form controls
-- CSS selectors, box model, positioning, Flexbox, and Grid
-- Responsive layout and media queries
-- Bootstrap layout, navigation, and components
-- CSS transitions and animations
-- Basic JavaScript variables and DOM-side behavior
-- Accessibility fundamentals such as labels, alt text, and responsive navigation
+- GitHub Actions checks JavaScript syntax and audits selected portfolio pages for duplicate IDs, broken local file references, and invalid fragment links.
+- The checks are a useful baseline, not a replacement for browser testing, accessibility checks, or a full HTML validator.
+- All commerce, registration, and contact pages are frontend demos. No real account, message, order, or payment is created.
+- Never enter real credentials, card numbers, or private information into practice forms.
+- Confirm that you have permission to publish each image, audio, and video asset, and remove any asset whose licence is unclear before sharing the project publicly.
 
 ## Author
 
-**Sai Kiran**
+**Sai Kiran Buska**
 
 - GitHub: https://github.com/saikiran0563
 - LinkedIn: https://www.linkedin.com/in/sai-kiran-buska-127866403

@@ -1,52 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Tags</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Practice HTML video, audio, and embedded media elements.">
+  <title>HTML Media Elements Practice</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 2rem 1rem; background: #f8fafc; color: #172033; font-family: system-ui, sans-serif; }
+    main { width: min(900px, 100%); margin: 0 auto; }
+    section { margin: 1.25rem 0; padding: 1.25rem; border: 1px solid #dce3ed; border-radius: .8rem; background: #fff; }
+    video, iframe { display: block; width: 100%; max-width: 560px; border: 0; border-radius: .5rem; }
+    audio { width: 100%; max-width: 560px; }
+    .notice { padding: .8rem; background: #fff7ed; border-left: 4px solid #c2410c; }
+  </style>
 </head>
 <body>
-    <h4>Video Tag</h4>
-    <video controls width="450" height="300">
-        <source src="/video/18127221-hd_1080_1920_30fps.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        
-    </video>
-    <hr>
-    <h4>Audio Tag</h4>
-    <audio controls>
-        <source src="/audio/kendrick-lamar-all-the-stars-ft.-sza-s-l-o-w-e-d-r-e-v-e-r-b-3.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-    <hr>
-    <h4>Embed Tag</h4>
-    <iframe width="300" height="300" src="https://www.youtube.com/embed/LnjGYvyTznY?si=XFtmGdZu1y6lpxeX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <iframe width="300px" height="300px"
-        src="https://www.youtube.com/embed/KIUch28q4sU"></iframe>
+  <main>
+    <h1>HTML Media Elements</h1>
+    <p>This page demonstrates video, audio, and embedded media. Media files are referenced with repository-relative paths so they work when opened from the project folder or served locally.</p>
+    <p class="notice">Only publish media you created or have permission to share. Check the audio file's licence before deploying this repository publicly.</p>
 
-    <hr>
-    <center>
-        <h3>Earen Yeger</h3>
-        <p>aspiring full-stack developer</p>
-        <button>Hire me</button>
-    </center>
-        <h4>about me</h4>
-        <p>I am a student learning HTML and web development. I enjoy working with media tags like video, audio, and embed.</p>
-    <ul><h4>my skills</h4>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-    </ul>
-    <ol><h4>other skills</h4>
-        <li>communication</li>
-        <li>problem-solving</li>
-        <li>teamwork</li>
-    </ol>
-    <h2>my image</h2>
-    <img src="/image/IMG_20250112_070329_925.jpg" alt="my image" width="100" height="100">
-    <h2>my video</h2>
-    <video controls width="450" height="300">
-        <source src="/video/18127221-hd_1080_1920_30fps.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </body>
+    <section>
+      <h2>Video element</h2>
+      <video controls preload="metadata" playsinline>
+        <source src="video/18127221-hd_1080_1920_30fps.mp4" type="video/mp4">
+        Your browser does not support embedded video.
+      </video>
+    </section>
+
+    <section>
+      <h2>Audio element</h2>
+      <audio controls preload="metadata">
+        <source src="audio/kendrick-lamar-all-the-stars-ft.-sza-s-l-o-w-e-d-r-e-v-e-r-b-3.mp3" type="audio/mpeg">
+        Your browser does not support embedded audio.
+      </audio>
+      <p class="small">This file is included only as an existing practice asset. Confirm that you have distribution rights before keeping it in a public repository.</p>
+    </section>
+
+    <section>
+      <h2>Embedded video</h2>
+      <iframe src="https://www.youtube-nocookie.com/embed/LnjGYvyTznY" title="Embedded video demonstration" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </section>
+
+    <section>
+      <h2>Concepts covered</h2>
+      <ul>
+        <li><code>video</code> and <code>audio</code> with controls and fallback text</li>
+        <li><code>source</code> elements and media types</li>
+        <li><code>iframe</code> titles and lazy loading</li>
+        <li>Relative file paths for local assets</li>
+      </ul>
+    </section>
+  </main>
+</body>
 </html>

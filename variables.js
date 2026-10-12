@@ -1,13 +1,19 @@
-let value= 10;
-value=40;
+"use strict";
 
-console.log(value);
+// Use let when a variable needs to be reassigned.
+let score = 10;
+score += 5;
 
-const num=20;
+// Use const when the binding should not be reassigned.
+const taxRate = 0.18;
+const productPrice = 1000;
 
-console.log(num);
+// var is shown for comparison with older JavaScript; prefer let or const in new code.
+var legacyLabel = "Older style variable";
 
-var add=30;
-add=80;
-var add =120;
-console.log(add);
+console.log("Score after update:", score);
+console.log("Tax rate:", taxRate);
+console.log("Example price:", productPrice);
+console.log("Legacy var example:", legacyLabel);
+
+// Open this file in a browser console or run it with Node.js to see the output.

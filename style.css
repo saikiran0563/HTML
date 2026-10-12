@@ -1,6 +1,69 @@
-button{
-    color:blueviolet
+/* Shared external stylesheet used by sample.html to demonstrate CSS sources. */
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f3f6fb;
 }
-.same-styling{
-    color: aquamarine;
+
+* {
+  box-sizing: border-box;
+}
+
+body.demo-body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+.demo-container {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.demo-panel {
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid #d9e1ec;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 1rem 3rem rgb(23 32 51 / 8%);
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.demo-card {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: .75rem;
+  background: #f8fafc;
+}
+
+.external-demo {
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.demo-button {
+  padding: .7rem 1rem;
+  border: 0;
+  border-radius: .5rem;
+  background: #172033;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.demo-button:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
 }

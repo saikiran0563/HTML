@@ -1,11 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>media Queries</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A responsive CSS media queries example that changes a card grid at different viewport widths.">
+  <title>CSS Media Queries Practice</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: clamp(1rem, 4vw, 3rem); background: #f8fafc; color: #0f172a; font-family: system-ui, sans-serif; }
+    main { width: min(1100px, 100%); margin: 0 auto; }
+    .eyebrow { color: #2563eb; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+    h1 { max-width: 16ch; font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; }
+    .hint { padding: 1rem; border-left: 4px solid #2563eb; background: #eff6ff; }
+    .card-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+    .card { padding: 1.4rem; border: 1px solid #dbe3ee; border-radius: .9rem; background: #fff; box-shadow: 0 .5rem 1.5rem rgb(15 23 42 / 5%); }
+    .card h2 { margin-top: 0; font-size: 1.2rem; }
+    .card p { margin-bottom: 0; color: #475569; }
+    #viewportState { font-weight: 700; }
+    @media (min-width: 600px) {
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      body { background: #f0f9ff; }
+    }
+    @media (min-width: 900px) {
+      .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      body { background: #f8fafc; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; }
+    }
+  </style>
 </head>
 <body>
-    
+  <main>
+    <p class="eyebrow">CSS responsive design</p>
+    <h1>One layout, three screen sizes.</h1>
+    <p class="hint">Resize the browser to test the media queries: one column by default, two columns at 600px, and three columns at 900px.</p>
+    <p>Current viewport width: <span id="viewportState">Checking…</span></p>
+    <section class="card-grid" aria-label="Responsive sample cards">
+      <article class="card"><h2>Small screens first</h2><p>Start with a simple layout and enhance it as more space becomes available.</p></article>
+      <article class="card"><h2>Tablet layout</h2><p>The first breakpoint creates a two-column grid for medium-sized viewports.</p></article>
+      <article class="card"><h2>Desktop layout</h2><p>A second breakpoint uses three columns when enough room is available.</p></article>
+    </section>
+  </main>
+  <script>
+    const viewportState = document.querySelector("#viewportState");
+    function updateViewportState() {
+      viewportState.textContent = window.innerWidth + "px";
+    }
+    window.addEventListener("resize", updateViewportState);
+    updateViewportState();
+  </script>
 </body>
 </html>
